@@ -1,17 +1,27 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { reactive } from 'vue';
+import SearchBox from './components/SearchBox.vue';
+import SearchBoxItem from './components/SearchBoxItem.vue';
+const searchForm = reactive({
+  
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <SearchBox
+    :search-form="searchForm"
+  >
+    <SearchBoxItem label="输入款：">
+      <input type="text">
+    </SearchBoxItem>
+    <SearchBoxItem label="下拉框：">
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </SearchBoxItem>
+  </SearchBox>
 </template>
 
 <style scoped>
